@@ -1,0 +1,5 @@
+server: #服务器
+  port: 5701  #端口号
+
+go-cqhttp:  #go-cqhttp
+  api_url: http://127.0.0.1:5700/  #API请求地址
