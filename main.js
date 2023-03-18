@@ -1,3 +1,4 @@
+//主程序
 const express = require("express")
 const app = express()
 const cors = require('cors')
@@ -26,5 +27,4 @@ app.use("/service/*",routes)
 function main () {
     console.log('\x1B[33m[INFO]','将使用 config.yml 内的配置启动node-cqbot\x1B[0m')
     app.listen(config.server.port,console.log('\x1B[33m[INFO]','HTTP服务器已启动:',`http://localhost:` + config.server.port + '/\x1B[0m'))
-    console.log('\x1B[33m[INFO]','使用 /app/config.yml 内的配置调用外部应用\x1B[0m')
 }
