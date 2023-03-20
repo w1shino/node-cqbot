@@ -1,4 +1,4 @@
-//主程序
+//主程序 启动命令:node main
 const express = require("express")
 const app = express()
 const cors = require('cors')
