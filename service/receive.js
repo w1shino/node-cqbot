@@ -1,3 +1,4 @@
+//接收go-cqhttp请求
 const fs = require('fs')
 const path = require('path');
 
