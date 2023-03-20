@@ -1,3 +1,4 @@
+//路由控制器
 const fs = require('fs')
 //GET请求
 exports.getApis = function(req, res, next) {
