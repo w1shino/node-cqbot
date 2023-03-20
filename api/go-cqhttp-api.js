@@ -614,3 +614,17 @@ exports.获取群成员身份 = async function(group_id, user_id) {
     }
     return 0    //普通群员
 }
+
+exports.bot是否在指定群内 = async function(group_id) {
+    const result = await got.post(url + "get_group_list",{
+        json: {
+            no_cache: false
+        }
+    }).json()
+    for (var i = 0; i < result.data.length; i++) {
+        if (result.data[i].group_id == group_id) {
+            return true
+        }
+    }
+    return false
+}
