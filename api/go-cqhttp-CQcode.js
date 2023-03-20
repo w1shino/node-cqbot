@@ -1,3 +1,4 @@
+//CQcode
 exports.转义 = function(message) {
     let text = message
     let result
