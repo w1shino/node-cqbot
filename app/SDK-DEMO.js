@@ -1,3 +1,4 @@
+//插件模板
 const api = require('../api/go-cqhttp-api')
 const CQcode = require('../api/go-cqhttp-CQcode')
 
