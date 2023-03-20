@@ -1,3 +1,4 @@
+//API命令集
 const got = require('got')
 const YAML = require('yaml')
 const fs = require('fs')
