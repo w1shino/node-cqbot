@@ -597,3 +597,20 @@ exports.检查链接安全性 = async function(url) {
     }).json()
     return result
 }
+
+exports.获取群成员身份 = async function(group_id, user_id) {
+    const result = await got.post(url + "get_group_member_info",{
+        json: {
+            group_id: group_id,
+            user_id: user_id,
+            no_cache: false
+        }
+    }).json()
+    if (result.data.role == 'owner') {
+        return 2    //群主
+    }
+    if (result.data.role == 'admin') {
+        return 1    //管理
+    }
+    return 0    //普通群员
+}
