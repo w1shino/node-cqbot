@@ -25,6 +25,6 @@ app.use("/service/*",routes)
 })
 
 function main () {
-    console.log('\x1B[33m[INFO]','将使用 config.yml 内的配置启动node-cqbot\x1B[0m')
-    app.listen(config.server.port,console.log('\x1B[33m[INFO]','HTTP服务器已启动:',`http://localhost:` + config.server.port + '/\x1B[0m'))
+    console.log('[INFO]','将使用 config.yml 内的配置启动node-cqbot')
+    app.listen(config.server.port,console.log('[INFO]','HTTP服务器已启动:',`http://localhost:` + config.server.port + '/'))
 }

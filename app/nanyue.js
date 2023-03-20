@@ -1,7 +1,18 @@
+const got = require('got')
+const YAML = require('yaml')
+const fs = require('fs')
+const master = YAML.parse(fs.readFileSync('config.yml', 'utf8')).master
 const api = require('../api/go-cqhttp-api')
 const CQcode = require('../api/go-cqhttp-CQcode')
 
 exports.main = async function(req) {
+    console.log(req)
+    if (req.self_id != null) {
+        if (await genuine_license(req.self_id) == false) {
+            console.log('[warn]','账号授权未通过')
+            return
+        }
+    }
     if (req.post_type == 'notice') {//通知上报 
         if (req.notice_type == 'friend_recall') {//私聊消息撤回
             
@@ -89,7 +100,10 @@ exports.main = async function(req) {
     if (req.post_type == 'message') {//消息上报
         if (req.message_type == 'private') {
             if (req.sub_type == 'friend') {//私聊消息
-                //const data = await api.发送私聊消息(req.user_id, 0,'测试消息',false)
+                if (req.message.substring(0,3) == '授权群') {
+                    授权群(req)
+                    return
+                }
             }
             if (req.sub_type == 'group') {//群聊消息
                 
@@ -107,4 +121,17 @@ exports.main = async function(req) {
             
         }
     }
+}
+
+async function genuine_license (self_id) {
+    const result = await got('http://118.112.240.182:5702/service/list/permit?uid=' + self_id).json()
+    if (result.code != 0) {
+        return false
+    } else {
+        true
+    }
+}
+
+async function 授权群(req) {
+    
 }
