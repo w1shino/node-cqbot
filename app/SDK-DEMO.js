@@ -92,15 +92,15 @@ exports.main = async function(req) {
             if (req.sub_type == 'friend') {//私聊消息
                 //const data = await api.发送私聊消息(req.user_id, 0,'测试消息',false)
             }
-            if (req.sub_type == 'group') {//群聊消息
-                
-            }
             if (req.sub_type == 'group_self') {//临时消息
                 
             }
             if (req.sub_type == 'other') {//自身消息
                 
             }
+        }
+        if (req.message_type == 'group') {//群聊消息
+                
         }
     }
     if (req.post_type == 'request') {//请求上报
