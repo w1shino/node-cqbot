@@ -7,7 +7,7 @@ exports.getApis = function(req, res, next) {
 		if (err){
 			res.status(404).send('api error')
 		} else {
-			const event = require('..' + baseUrl).main('GET',req.body,res)
+			const event = require('..' + baseUrl).main('GET',req.query,res)
 		}
 	})
 }
